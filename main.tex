@@ -1,0 +1,234 @@
+\documentclass[]{beamer}
+
+% setup basic metainfo
+\title{Cooperative Game Theory \\ \& Optimism Bias}
+\author{Filip Úradník}
+\date{\today}
+
+\input{template}
+% \input{color}
+\input{beamer.tex}
+\input{english}
+
+\usepackage[natbib=true,style=authoryear,backend=bibtex,useprefix=true]{biblatex}
+\addbibresource{bibliography.bib}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+\def\blue#1{{\color{blue} #1}}
+\def\orange#1{{\color{orange} #1}}
+\def\red#1{{\color{red} #1}}
+\def\s{\mathcal{S}}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Cooperative Game Theory -- Motivation}
+	\begin{itemize}
+		\item There is a group of players with common goal.
+		\item Players can form \emph{coalitions}.
+		\item A formed coalition receives \emph{reward}.
+	\end{itemize}
+	\vspace{2em}
+	\begin{definition}[Cooperative Game]
+		A \emph{cooperative game} is a tuple $ \left( N,v \right) $, where \begin{enumerate}
+			\item $ N = \left\{ 1, \ldots, n \right\} $ is the set of \emph{players},
+			\item $ v: \pot N \to \R $ is the \emph{characteristic function}, with $ \fce{v}{\emptyset} = 0 $.
+		\end{enumerate}
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Cooperative Game Theory}
+	In CGT, we try to answer the following:
+	\begin{itemize}[ ]
+		\item Which coalition should form?
+		\item How should the received reward be distributed?
+	\end{itemize}
+	Battle plan:
+	\begin{enumerate}
+		\item We assume the grand coalition $ N $ forms.
+		\item We suggest a distribution of $ \fce{v}{N} $ to the players.
+		\item We analyze whether this coalition is stable.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Payoff Vectors}
+	Distribution of $ \fce{v}{N} $ is formalised as a \emph{payoff vector}
+	\[
+		x \in \R^n.
+	\]
+	We require \emph{efficiency}, meaning \[
+		\sum_{i \in N}^{} x_i = \fce{v}{N}.
+	\]
+	We study \emph{solution concepts}---payoff vectors with given properties \[
+		f: \Gamma^n \to {\R^n} \qquad \text{or} \qquad f: \Gamma^n \to \pot {\R^n}.
+	\]
+\end{frame}
+
+\begin{frame}{Stability}
+	\begin{definition}[Core]
+		The \emph{core} is a solution concept $ \mathcal{C}: \Gamma^n \to \pot {\R^n} $ such that, for an efficient $ x \in \R^n $, \[
+			x \in \mathcal{C}(N,v) \qquad \iff \qquad \left( \forall S \subseteq N \right)\quad \sum_{i \in S}^{} x_i \geq v(S).
+		\]
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Fairness}
+	A fair solution concept should satisfy the following axioms:
+	\begin{enumerate}
+		\item efficiency, i.e., $\sum_{i \in N}^{} \shapley[i]{v} = \fce{v}{N},$
+		\item symmetry, i.e., $  \forall i,j \in N, \forall S \subseteq N \setminus \left\{ i,j \right\} $\[
+				 \fce{v}{S \cup i} = \fce{v}{S \cup j} \quad\implies\quad \shapley[i]{v} = \shapley[j]{v} ,
+			\]
+		\item null player, i.e., $ \forall i \in N, \forall S \subseteq N \setminus \left\{ i \right\} $
+			\[
+				\fce{v}{S} = \fce{v}{S \cup i} \implies \shapley[i]{v} = 0,
+			\]
+		\item additivity, i.e., $ \forall v,w \in \Gamma^ n, $
+			\[
+				\shapley{v + w} = \shapley{v} + \shapley{w}.
+			\]
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Fairness -- Shapley Value}
+	\begin{definition}[Shapley Value]
+		The \emph{Shapley value} is a solution concept $ \Shapley: \Gamma^n \to \R^n $, where \[
+			\shapley[i]v \deq \sum_{S \subseteq N \setminus i}^{} \frac{\absolute S! \left( n-\absolute S-1 \right)!}{n!} \left( \fce{v}{S} - \fce{v}{S \cup i} \right).
+		\]
+	\end{definition}
+
+	\begin{theorem}[Shapley]
+		The Shapley value $ \Shapley $ is the unique function satisfying all the axioms of fairness stated before.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Further Questions to Ask}
+	\begin{itemize}[ ]
+		\item When is the core non-empty?
+		\item When is the Shapley value in the core?
+	\end{itemize}
+	\vspace{1em}
+	\begin{theorem}
+		If the characteristic function is \emph{supermodular}, i.e., \[
+			\left( \forall S,T \subseteq N \right)\quad \fce{v}{S} + \fce{v}{T} \leq \fce{v}{S \cup T} + \fce{v}{S \cap T},
+		\]
+		then $ \mathcal{C}(v) $ is non-empty, and specifically, \[
+			\shapley v \in \mathcal{C}(v).
+		\]
+	\end{theorem}
+\end{frame}
+
+\section{Optimism Bias}
+
+\begin{frame}{What Is Wrong?}
+	\begin{definition}[Cooperative Game]
+		A \emph{cooperative game} is a tuple $ \left( N,v \right) $, where \begin{enumerate}
+			\item $ N = \left\{ 1, \ldots, n \right\} $ is the set of \emph{players},
+			\item $ v: \pot N \to \R $ is the \emph{characteristic function}, with $ \fce{v}{\emptyset} = 0 $.
+		\end{enumerate}
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Incomplete Information}
+	Assume we only know the values of some coalitions.
+	\vspace{3em}
+	\begin{definition}[Incomplete Cooperative Game]
+		An \emph{incomplete cooperative game} is a tuple $ \left( N,\k,v \right) $, where \begin{enumerate}
+			\item $ N = \left\{ 1, \ldots, n \right\} $ is the set of \emph{players},
+			\item $ v: \pot N \to \R $ is the \emph{characteristic function}, with $ \fce{v}{\emptyset} = 0 $,
+			\item $ \k \subseteq \pot N $ are the \emph{known values}.
+		\end{enumerate}
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Some Necessary Constraints}
+	We assume \emph{superadditivity} of $ v $: \[
+		\left( \forall S,T \subseteq N, S \cap T = \emptyset \right)\qquad \fce{v}{S} + \fce{v}{T} \leq \fce{v}{S \cup T}.
+	\]
+	We further assume minimal information to be present: \[
+		\k \supseteq \k_0,
+	\]
+	$ \k_0 = \left\{ \emptyset, N \right\} \cup \left\{ \left\{ i \right\} \suchthat i \in N \right\} $.
+\end{frame}
+
+\include{superadditive_ext}
+
+\begin{frame}{Utopian Gap}
+    \begin{itemize}[ ]
+        \item Players are \emph{optimistically biased}.
+        \item As a group made $ v(N) $.
+				\item Players demand $ \red{\shapley[1]{v_1}}, \orange{\shapley[2]{v_2}}, \blue{\shapley[3]{v_3}}, \ldots $
+    \end{itemize}
+		\vspace{2em}
+
+		\begin{definition}[Utopian Gap]
+        The \emph{utopian gap} of $ \left( N, \k, v \right) $ is \[
+					\mathcal{G}(v, \k) := \sum_{i \in N} \shapley[i]{v_i} - v(N),
+        \]
+				where $v_i \deq \argmax_{v \in \mathbb{S}(v,\k)} \shapley[i]v$.
+			\end{definition}
+\end{frame}
+
+\begin{frame}{Reducing $ \mathcal{G} $ -- Setting}
+	\begin{itemize}[ ]
+		\item We have $ v \sim \mathcal{F} $, where $ \mathcal{F} $ is a distribution of superadditive games.
+		\item We only know $ \k \supseteq \k_0 $ values of it.
+		\item We have a budget $ \tau $ of how many values we can learn.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Reducing Optimism Bias -- Offline Approach}
+	In the simplest case, we can minimize the expected value: \[
+		\s^* = \argmin_{\s, \absolute{\s} = \tau} \E_{v \sim \mathcal{F}} \left[ \mathcal{G}(v,\k \cup \s) \right].
+	\]
+
+	\vspace{2em}
+	We call this the \emph{Offline} approach.
+\end{frame}
+
+\begin{frame}{Reducing Optimism Bias -- Online Approach}
+	It is \textquote{inefficient} to learn all values at once.
+
+	The \emph{Online} approach seeks to find a policy $ \pi $ which selects the next value to learn based on the values already known.
+
+	A solution to the Online approach can be approximated using reinforcement learning (we use the PPO algorithm).
+\end{frame}
+
+\begin{frame}{Reducing Optimism Bias -- Results for $ \mathcal{F} = \texttt{factory} (5) $}
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/factory5.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Reducing Optimism Bias -- Results for $ \mathcal{F} = \texttt{supermodular} (5) $}
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/convex5.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Reducing Optimism Bias -- \textsc{Largest Coalitions} Heuristic}
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/convex_linear.pdf}
+	\end{center}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}[allowframebreaks]{References}
+    \nocite{*}
+    \printbibliography[heading=none]
+\end{frame}
+
+\begin{frame}{Acknowledgments}
+	This work was supported by CoSP, a project funded by European Union’s Horizon
+	2020 research and innovation programme, grant agreement No. 823748.
+
+	Thank you to DIMACS for organizing the REU 2024 program.
+
+	Thank you as well to David Sychrovský, Martin Černý, and Jakub Černý, who
+	were my co-authors on the paper which inspired this talk \citep{uradnik2024reducing}.
+\end{frame}
+
+\section{Thank You!}
+
+\end{document}

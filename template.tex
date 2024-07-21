@@ -1,0 +1,244 @@
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{graphicx, xcolor}
+\usepackage{mfirstuc}
+%\usepackage[defaultmono]{droidmono}
+\usepackage{amsmath,amssymb,amsthm,textcomp,thm-restate}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{stmaryrd} % lightning symbol n stuff
+\usepackage[noend]{algpseudocode}
+\usepackage{tikz}
+\usepackage{indentfirst}
+\usetikzlibrary{positioning}
+
+
+% handle fonts encoding.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% hyperlinks
+\usepackage[capitalize]{cleveref}
+\hypersetup{
+	colorlinks=false
+}
+
+\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+\renewcommand*{\theequation}{%
+	\ifnum\value{subsection}=0 %
+		\ifnum\value{section}=0 %
+		\else\thesection.\fi\else\thesubsection.\fi\arabic{equation}%
+}
+
+% small matrix with parenths
+\newenvironment{psmallmatrix} {\left(\begin{smallmatrix}} {\end{smallmatrix}\right)}
+
+\algrenewcommand\algorithmicthen{\textbf{:}}
+\algrenewcommand\algorithmicdo{\textbf{:}}
+\algrenewcommand\algorithmicelse{\textbf{else :}}
+\algdef{SN}[SUBALG]{Indent}{EndIndent}{}{}%
+\algdef{SN}[SUBALG]{Procedure}{EndProcedure}[2]{\algofont{#1}({#2}):}{}%
+
+% acronyms
+%\usepackage[automake]{glossaries-extra}
+%\setabbreviationstyle[acronym]{long-short}
+%\newacronym{satnarka}{PŠ}{Princip Šatnářky}
+%\makeglossaries
+
+% text spread on page
+% \usepackage{geometry}
+% \geometry{left=25mm,right=25mm,%
+% 	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\def\theorempre{1.7ex plus 1.2ex minus 0.6ex}
+\def\theorempost{1.5ex plus 1.2ex minus 0.6ex}
+
+% % custom theorems
+% \newtheoremstyle{Sdefi}{\theorempre}{\theorempost}{\normalfont}{0pt}
+% {\scshape}{: }{0pt}{{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+% \newtheoremstyle{Sthm}{\theorempre}{\theorempost}{\normalfont}{0pt}
+% {\scshape}{: }{0pt}{{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+% \newtheoremstyle{Sex}{\theorempre}{\theorempost}{\normalfont}{0pt}
+% {\scshape}{: }{0pt}{{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\def\qed{{\parfillskip=0pt\allowbreak\hfill\nobreak $\blacksquare$\par}}
+
+% code listing settings
+\lstset{
+	language=Python,
+	%basicstyle=\ttfamily\small,
+	%backgroundcolor=\color{lightgray},
+	aboveskip={1.0\baselineskip},
+	belowskip={1.0\baselineskip},
+	columns=fixed,
+	xleftmargin=2\parindent,
+	extendedchars=true,
+	breaklines=true,
+	tabsize=4,
+	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	%keywordstyle=\color{blue},
+	%commentstyle=\color{teal},
+	%stringstyle=\color{teal},
+	numbers=left,
+	captionpos=b
+}
+
+% misc
+\def\restrict#1#2{#1\!\restriction\!#2}
+\def\doubleunderline#1{\underline{\underline{#1}}}
+\def\rand#1{\text{#1}}
+\def\randvec#1{\textbf{#1}}
+
+\def\suchthat{\;\vert\;}
+\def\given{;}
+
+\def\pot#1{\fce{\mathcal{P}}{#1}}
+\def\potfin#1{\left[ #1 \right]^{<\omega}}
+\def\xor{\mathbin{\oplus}}
+\def\divides{\mathbin{\backslash}}
+
+% functions with auto parenths
+\def\bfce#1#2{#1\!\bigl(#2\bigr)}
+\def\fce#1#2{#1\!\left(#2\right)}
+\def\fceb#1#2{#1\!\left[ #2 \right]}
+\def\fcec#1#2{#1\{#2\}}
+\def\fces#1#2{#1\!\left< #2 \right>}
+
+\def\algofont{\textsc}
+\def\algref#1{\algofont{\nameref{#1}}}
+\def\algorithm#1#2{\fce{\algofont{#1}}{#2}}
+\newenvironment{algor}[3]{\begin{minipage}{\textwidth}\begin{algo}[#1]\ \\ \AlgIn #2\\\AlgOut #3 \begin{algorithmic}[1]}{\end{algorithmic}\end{algo}\end{minipage}}
+
+\def\set#1{\left\{#1\right\}}
+\def\arr#1{\left[#1\right]}
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\fin}{Fin}
+\DeclareMathOperator{\poly}{poly}
+\DeclareMathOperator{\dlog}{dlog}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator*{\mini}{mini}
+\DeclareMathOperator*{\maxi}{maxi}
+\DeclareMathOperator*{\avg}{avg}
+
+\def\funcs#1#2{^{#1}#2} % množina funkcí z #1 do #2
+
+\def\isomorph{\cong}
+\def\dd{\,\text{d}}
+\def\compl#1{\overline {#1}}
+\def\tuple#1{\left< #1 \right>}
+
+\def\range#1{\left[ #1 \right]}
+
+% vectors
+\def\tr{{\!\top\!}}
+\def\trans#1{{#1}^{\tr}}
+\def\vec{\boldsymbol}
+\def\Rmm#1#2{\R^{#1 \times #2}}
+\def\Rm#1{\R^{#1}}
+\def\ii#1#2{_{#1,#2}}
+\def\inv#1{#1^{\inve}}
+\def\inve{-1}
+\def\I#1{I_{#1}}
+\def\zero{\vec{o}}
+
+% probability and random variables
+\def\pr#1{\fceb{\Pr}{#1}}
+\def\prfa#1#2{\fceb{\Pr_{#1}}{#2}}
+\def\prt#1{\fceb{\Pr}{\text{#1}}}
+\def\prfat#1#2{\prfa{#1}{\text{#2}}}
+\def\vrv{\textbf}
+\def\rv{\text}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+
+% distributions
+\def\Normd{\mathcal{N}}
+\def\normd{\fce{\Normd}}
+\def\normdf#1#2#3{\normd{#3 \given #1, #2}}
+\DeclareMathOperator{\Berd}{Ber}
+\def\berd{\fce{\Berd}}
+\def\berdf#1#2{\berd{#2 \given #1}}
+\DeclareMathOperator{\Poisd}{Pois}
+\def\poisd{\fce{\Poisd}}
+\def\poisdf#1#2{\poisd{#2 \given #1}}
+
+\def\Rowsp#1{\mathcal{R}\!\left(#1\right)}
+\def\Colsp#1{\mathcal{S}\!\left(#1\right)}
+
+\def\norm#1{\left\lVert #1 \right\rVert }
+\def\aabsolute#1{\left\lVert #1 \right\rVert }
+\def\absolute#1{\left\lvert #1 \right\rvert }
+\def\dotpr#1#2{\langle #1 , #2 \rangle}
+\def\randin{\in_R}
+
+\def\emod#1{\mathbin{\equiv_{#1}}}
+\def\po{\mathbin{\circ}}
+
+\def\disjcup{\mathbin{\dot\cup}}
+\def\bigdisjcup{\mathop{\dot\bigcup}}
+
+\def\deltap{\delta^+}
+\def\deltam{\delta^-}
+
+\def\deq{\mathbin{:=}}
+\def \lHeq{\mathbin{\stackrel{l'H}{=}}}
+\def\concat{\cdot}
+
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\C{\mathbb{C}}
+\def\Z{\mathbb{Z}}
+\def\K{\mathbb{K}}
+\def\P{\mathbb{P}}
+\def\V{\mathbb{V}}
+\def\F{\mathbb{F}}
+\def\ff{\mathcal{F}}
+\def\T{\mathbb{T}}
+\def\O{\mathcal{O}}
+\def\M{\mathcal{M}}
+\def\integ#1#2#3#4{\int_{#1}^{#2} #4 \text{d}#3}
+\def\iinteg#1#2#3#4{\iint_{#1} #4 \text{d}#2\text{d}#3}
+
+% mohutnost
+\def\mohge{\succcurlyeq}
+\def\mohgt{\succ}
+\def\mohle{\preccurlyeq}
+\def\mohlt{\prec}
+\def\moheq{\approx}
+
+% implications
+\def\implies{\rightarrow}
+\def\impliedby{\leftarrow}
+\def\Implies{\Longrightarrow}
+\def\Impliedby{\Longleftarrow}
+\def\iff{\leftrightarrow}
+\def\Iff{\Longleftrightarrow}
+
+% complexity classes
+\def\problem{\textsc}
+\def\problemClass{\textsf}
+\def\np{\problemClass{NP}}
+\def\p{\problemClass{P}}
+\def\conp{\problemClass{coNP}}
+\def\fnp{\problemClass{FNP}}
+
+\def\Shapley{\phi}
+\newcommand\shapley[1][]{\fce{\Shapley_{#1}}}
+\def\k{\mathcal{K}}

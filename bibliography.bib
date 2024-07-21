@@ -1,0 +1,167 @@
+@misc{schulman2017proximal,
+	abstract = {We propose a new family of policy gradient methods for
+	            reinforcement learning, which alternate between sampling data
+	            through interaction with the environment, and optimizing a "
+	            surrogate" objective function using stochastic gradient ascent.
+	            Whereas standard policy gradient methods perform one gradient
+	            update per data sample, we propose a novel objective function that
+	            enables multiple epochs of minibatch updates. The new methods,
+	            which we call proximal policy optimization (PPO), have some of the
+	            benefits of trust region policy optimization (TRPO), but they are
+	            much simpler to implement, more general, and have better sample
+	            complexity (empirically). Our experiments test PPO on a collection
+	            of benchmark tasks, including simulated robotic locomotion and
+	            Atari game playing, and we show that PPO outperforms other online
+	            policy gradient methods, and overall strikes a favorable balance
+	            between sample complexity, simplicity, and wall-time.},
+	added-at = {2023-08-14T19:18:46.000+0200},
+	author = {Schulman, John and Wolski, Filip and Dhariwal, Prafulla and Radford,
+	          Alec and Klimov, Oleg},
+	biburl = {
+	          https://www.bibsonomy.org/bibtex/2ebf49efaa2caed1307b2ccb7529eb9d6/vincentqb
+	          },
+	description = {Proximal Policy Optimization Algorithms},
+	interhash = {f57ff463a90dbafb77d55a25aea8355c},
+	intrahash = {ebf49efaa2caed1307b2ccb7529eb9d6},
+	keywords = {ppo},
+	timestamp = {2023-08-14T19:18:46.000+0200},
+	title = {{Proximal Policy Optimization Algorithms}},
+	url = {http://arxiv.org/abs/1707.06347},
+	x-fetchedfrom = {Bibsonomy},
+	year = 2017,
+}
+
+@inproceedings{uradnik2024reducing,
+	author = {\'{U}radn\'{\i}k, Filip and Sychrovsk\'{y}, David and Čern\'{y},
+	          Jakub and Čern\'{y}, Martin},
+	title = {Reducing Optimism Bias in Incomplete Cooperative Games},
+	year = {2024},
+	isbn = {9798400704864},
+	publisher = {International Foundation for Autonomous Agents and Multiagent
+	             Systems},
+	address = {Richland, SC},
+	abstract = {Cooperative game theory has diverse applications in contemporary
+	            artificial intelligence, including domains like interpretable
+	            machine learning, resource allocation, and collaborative
+	            decision-making. However, specifying a cooperative game entails
+	            assigning values to exponentially many coalitions, and obtaining
+	            even a single value can be resource-intensive in practice. Yet
+	            simply leaving certain coalition values undisclosed introduces
+	            ambiguity regarding individual contributions to the collective
+	            grand coalition. This ambiguity often leads to players holding
+	            overly optimistic expectations, stemming from either inherent
+	            biases or strategic considerations, frequently resulting in
+	            collective claims exceeding the actual grand coalition value. In
+	            this paper, we present a framework aimed at optimizing the sequence
+	            for revealing coalition values, with the overarching goal of
+	            efficiently closing the gap between players' expectations and
+	            achievable outcomes in cooperative games. Our contributions are
+	            threefold: (i) we study the individual players' optimistic
+	            completions of games with missing coalition values along with the
+	            arising gap, and investigate its analytical characteristics that
+	            facilitate more efficient optimization; (ii) we develop methods to
+	            minimize this gap over classes of games with a known prior by
+	            disclosing values of additional coalitions in both offline and
+	            online fashion; and (iii) we empirically demonstrate the
+	            algorithms' performance in practical scenarios, together with an
+	            investigation into the typical order of revealing coalition values.
+	            },
+	booktitle = {Proceedings of the 23rd International Conference on Autonomous
+	             Agents and Multiagent Systems},
+	pages = {1847–1855},
+	numpages = {9},
+	keywords = {active learning, incomplete cooperative games, shapley value,
+	            superadditive set functions, value querying},
+	series = {AAMAS '24},
+}
+
+@inbook{Shapley+1953+307+318,
+	address = {Princeton},
+	author = {Shapley, Lloyd S.},
+	booktitle = {Contributions to the Theory of Games (AM-28), Volume II},
+	doi = {10.1515/9781400881970-018},
+	editor = {Harold William Kuhn and Albert William Tucker},
+	isbn = {9781400881970},
+	lastchecked = {2024-06-07},
+	pages = {307–318},
+	publisher = {Princeton University Press},
+	title = {17. A Value for n-Person Games},
+	url = {https://doi.org/10.1515/9781400881970-018},
+	year = {1953},
+}
+
+@article{CERNY202462,
+	abstract = {The computation of a solution concept of a cooperative game
+	            usually employs values of all coalitions. However, in some
+	            applications, the values of some of the coalitions might be unknown
+	            due to high costs associated with their determination or simply
+	            because it is not possible to determine them exactly. We introduce
+	            a method to approximate standard solution concepts based only on
+	            partial characteristic function of the cooperative game. In this
+	            paper, we build on our previous results and generalise the results
+	            of our methods to a significantly larger class of structures of
+	            incomplete information.},
+	author = {Martin Černý and Michel Grabisch},
+	doi = {10.1016/j.dam.2023.12.007},
+	issn = {0166-218X},
+	journal = {Discrete Applied Mathematics},
+	keywords = {Cooperative game, Incomplete game, Shapley value, Core, -value},
+	pages = {62–79},
+	title = {Incomplete cooperative games with player-centered information},
+	url = {https://www.sciencedirect.com/science/article/pii/S0166218X23004742},
+	volume = {346},
+	year = {2024},
+}
+
+@article{Gillies1959,
+	title = {Solutions to general non-zero-sum games},
+	author = {Gillies, Donald B.},
+	journal = {Contributions to the Theory of Games},
+	volume = {4},
+	number = {40},
+	year = {1959},
+}
+
+@inproceedings{lundberg2017shap,
+	author = {Lundberg, Scott M. and Lee, Su-In},
+	title = {A unified approach to interpreting model predictions},
+	year = {2017},
+	isbn = {9781510860964},
+	publisher = {Curran Associates Inc.},
+	address = {Red Hook, NY, USA},
+	abstract = {Understanding why a model makes a certain prediction can be as
+	            crucial as the prediction's accuracy in many applications. However,
+	            the highest accuracy for large modern datasets is often achieved by
+	            complex models that even experts struggle to interpret, such as
+	            ensemble or deep learning models, creating a tension between
+	            accuracy and interpretability. In response, various methods have
+	            recently been proposed to help users interpret the predictions of
+	            complex models, but it is often unclear how these methods are
+	            related and when one method is preferable over another. To address
+	            this problem, we present a unified framework for interpreting
+	            predictions, SHAP (SHapley Additive exPlanations). SHAP assigns
+	            each feature an importance value for a particular prediction. Its
+	            novel components include: (1) the identification of a new class of
+	            additive feature importance measures, and (2) theoretical results
+	            showing there is a unique solution in this class with a set of
+	            desirable properties. The new class unifies six existing methods,
+	            notable because several recent methods in the class lack the
+	            proposed desirable properties. Based on insights from this
+	            unification, we present new methods that show improved
+	            computational performance and/or better consistency with human
+	            intuition than previous approaches.},
+	booktitle = {Proceedings of the 31st International Conference on Neural
+	             Information Processing Systems},
+	pages = {4768–4777},
+	numpages = {10},
+	location = {Long Beach, California, USA},
+	series = {NIPS'17},
+}
+
+@book{Peleg2007,
+	author = {Peleg, Bezalel and Sudhölter, Peter},
+	title = {Introduction to the Theory of Cooperative Games},
+	year = {2007},
+	publisher = {Springer},
+}
+

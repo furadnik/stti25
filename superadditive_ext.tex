@@ -1,0 +1,32 @@
+\begin{frame}{Superadditive Extensions -- Candidates for Real Values}
+		\begin{center}
+		\begin{tikzpicture}[] %%[scale=4] ONLY changes distances, not the canvas
+    % Define the coordinates of the vertices
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4.3, 0);
+    \coordinate (C) at (7, 3.5);
+    \coordinate (D) at (5, 6);
+    \coordinate (E) at (2, 5);
+    \coordinate (F) at (0, 2.5);
+    \coordinate (v) at (3, 3.5);
+    \coordinate (v1) at (B);
+    \coordinate (v2) at (D);
+    \coordinate (v3) at (E);
+    
+    % Draw and fill the hexagon
+		\filldraw[very thick, fill=white!85!mDarkBrown, draw=mDarkBrown] (A) -- (B) -- (C) node[anchor=south,yshift=30]{$\mathbb{S}^n(v,\k)$}-- (D) -- (E) -- (F) -- cycle;
+
+    % \filldraw[mDarkBrown] (A) circle (1pt) node[anchor=north]{$A$};
+    % \filldraw[mDarkBrown] (B) circle (1pt) node[anchor=north]{$B$};
+    % \filldraw[mDarkBrown] (C) circle (1pt) node[anchor=west]{$C$};
+    % \filldraw[mDarkBrown] (D) circle (1pt) node[anchor=south]{$D$};
+    % \filldraw[mDarkBrown] (E) circle (1pt) node[anchor=south]{$E$};
+    % \filldraw[mDarkBrown] (F) circle (1pt) node[anchor=east]{$F$};
+
+		\filldraw[mDarkBrown] (v) circle (1.5pt) node[anchor=south]{${v}$};
+		\filldraw[red] (v1) circle (1.5pt) node[anchor=north]{${v_1}$};
+		\filldraw[orange] (v2) circle (1.5pt) node[anchor=south]{${v_2}$};
+		\filldraw[blue] (v3) circle (1.5pt) node[anchor=east]{${v_3}$};
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
