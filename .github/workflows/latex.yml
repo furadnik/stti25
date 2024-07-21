@@ -22,4 +22,6 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: false
           title: "Automatic Release"
-          files: *.pdf
+          files: |
+            main.pdf
+            handout.pdf
