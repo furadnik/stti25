@@ -12,7 +12,7 @@ jobs:
       - name: Make Thesis
         run: |
           sudo apt update
-          sudo apt install -y texlive texlive-lang-czechslovak texlive-science texlive-latex-extra git make texlive-fonts-extra biblatex
+          sudo apt install -y texlive texlive-lang-czechslovak texlive-science texlive-latex-extra git make texlive-fonts-extra texlive-bibtex-extra
           make handout.pdf
           make main.pdf
       - uses: "marvinpinto/action-automatic-releases@latest"
