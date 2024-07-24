@@ -2,8 +2,6 @@
 
 % setup basic metainfo
 \title{Cooperative Game Theory \& Optimism Bias}
-\author{Filip Úradník}
-\date{\today}
 
 \input{template}
 % \input{color}
@@ -85,9 +83,9 @@
 		\item<3-> symmetry, i.e., $  \forall i,j \in N, \forall S \subseteq N \setminus \left\{ i,j \right\} $\[
 				 \fce{v}{S \cup i} = \fce{v}{S \cup j} \quad\implies\quad \shapley[i]{v} = \shapley[j]{v} ,
 			\]
-		\item<4-> null player, i.e., $ \forall i \in N, \forall S \subseteq N \setminus \left\{ i \right\} $
+		\item<4-> null player, i.e., $ \forall i \in N,  $
 			\[
-				\fce{v}{S} = \fce{v}{S \cup i} \quad \implies \quad \shapley[i]{v} = 0,
+				\left(  \forall S \subseteq N \setminus \left\{ i \right\} \right)\left(  \fce{v}{S} = \fce{v}{S \cup i} \right) \quad \implies \quad \shapley[i]{v} = 0,
 			\]
 		\item<5-> additivity, i.e., $ \forall v,w \in \Gamma^ n, $
 			\[
@@ -110,11 +108,11 @@
 
 \begin{frame}{Further Questions to Ask}
 	\begin{itemize}[ ]
-		\item When is the core non-empty?
-		\item When is the Shapley value in the core?
+		\item<2-> When is the core non-empty?
+		\item<3-> When is the Shapley value in the core?
 	\end{itemize}
 	\vspace{1em}
-	\begin{theorem}
+	\begin{theorem}<4->
 		If the characteristic function is \emph{supermodular}, i.e., \[
 			\left( \forall S,T \subseteq N \right)\quad \fce{v}{S} + \fce{v}{T} \leq \fce{v}{S \cup T} + \fce{v}{S \cap T},
 		\]
