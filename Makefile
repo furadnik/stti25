@@ -42,4 +42,4 @@ purge:
 clean: purge
 	rm $(MAINS:.tex=.pdf) || echo "fine"
 
-.PHONY: all purge clean
+.PHONY: all purge clean beamer.tex
