@@ -1,4 +1,4 @@
-\documentclass [14pt,xcolor=dvipsnames]{beamer} 
+\documentclass [14pt,xcolor=dvipsnames,aspectratio=169]{beamer} 
 
 \usepackage[czech]{babel}
 \usepackage{svg}
@@ -9,7 +9,6 @@
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
 \title{Maximizing Truth Learning in a Social Network is \np{}-hard}
-% TODO: amanda first auth
 \author[1]{Filip \'{U}radn\'{i}k\textsuperscript{1,\textasteriskcentered} \and Amanda Wang\textsuperscript{2,\textasteriskcentered} \and Jie Gao\textsuperscript{3}}
 
 \institute{
@@ -43,7 +42,6 @@
     \begin{itemize}
         \item<1-> Bayesovské pravidlo -- nejpravděpodobněji správná akce,
         \item<2-> \textquote{Majority Vote} -- vyberu akci která se mezi předchůdci a mým signálem nachází nejčastěji.
-					% TODO: může být jiné?
     \end{itemize}
 \end{frame}
 
@@ -109,7 +107,6 @@
 \end{defi}
 \end{frame}
 
-% TODO: np macro
 \begin{frame}{\np{}-hardness}
     \begin{thm}
         \netlearn{} is \np{}-těžký pro $ \mu = \mu^B $ i $ \mu = \mu^M $.
