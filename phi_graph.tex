@@ -1,0 +1,65 @@
+\begin{figure}
+\begin{tikzpicture}[
+	stff/.style={circle, draw=black, thick, minimum size=30},
+	stffc/.style={rectangle, draw=black, thick, minimum size=30},
+ scale=0.65,transform shape
+	]
+		%Nodes
+		\node[stff]        (x_i)                  {$ x $};
+		\node[stff]        (nx_i)   [below=of x_i,yshift=10]   {$ \lnot x $};
+		\node[stff]        (d_i)   [left=of x_i,yshift=-25,xshift=5]   {$ d_x $};
+
+		\node[stff]        (x_j)    [below=of nx_i,yshift=10]  {$ y $};
+		\node[stff]        (nx_j)   [below=of x_j,yshift=10]   {$ \lnot y $};
+		\node[stff]        (d_j)   [left=of x_j,yshift=-25,xshift=5]   {$ d_y $};
+
+		\node[stff]        (x_k)    [below=of nx_j,yshift=10]  {$ z $};
+		\node[stff]        (nx_k)   [below=of x_k,yshift=10]   {$ \lnot z $};
+		\node[stff]        (d_k)   [left=of x_k,yshift=-25,xshift=5]   {$ d_z $};
+
+		%Lines
+		\draw[->, thick] (d_i)  to  (x_i);
+		\draw[->, thick] (d_i)  to (nx_i);
+		\draw[<->, thick] (x_i)  to (nx_i);
+
+		\draw[->, thick] (d_j)  to  (x_j);
+		\draw[->, thick] (d_j)  to (nx_j);
+		\draw[<->, thick] (x_j)  to (nx_j);
+
+		\draw[->, thick] (d_k)  to  (x_k);
+		\draw[->, thick] (d_k)  to (nx_k);
+		\draw[<->, thick] (x_k)  to (nx_k);
+
+		\onslide<2->{
+			\node[stffc]	(C_1)    [right=of x_i,yshift=-5,xshift=200]  {$ C_1 $};
+			\node[stffc]	(C_2)    [below=of C_1]  {$ C_2 $};
+			\node[stffc]	(C_3)    [below=of C_2]  {$ C_3 $};
+			\node[stffc]	(C_4)    [below=of C_3]  {$ C_4 $};
+			\node[stffc]	(C_5)    [below=of C_4]  {$ C_5 $};
+		}
+		
+		\onslide<3->{
+			\alert<4>{
+				\draw[->, thick] (x_i)   to (C_1);
+				\draw[->, thick] (x_j)   to (C_1);
+				\draw[->, thick] (nx_k)  to (C_1);
+			}
+
+			\draw[->, thick] (nx_i)   to (C_2);
+			\draw[->, thick] (x_j)   to (C_2);
+			\draw[->, thick] (nx_k)  to (C_2);
+
+			\draw[->, thick] (nx_i)   to (C_3);
+			\draw[->, thick] (nx_j)   to (C_3);
+			\draw[->, thick] (x_k)  to (C_3);
+
+			\draw[->, thick] (nx_i)   to (C_4);
+			\draw[->, thick] (nx_j)   to (C_4);
+			\draw[->, thick] (x_k)  to (C_4);
+
+			\draw[->, thick] (x_i)   to (C_5);
+			\draw[->, thick] (x_j)   to (C_5);
+			\draw[->, thick] (x_k)  to (C_5);
+		}
+	\end{tikzpicture}
+\end{figure}

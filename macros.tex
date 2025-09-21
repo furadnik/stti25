@@ -1,0 +1,38 @@
+\newcommand{\filip}[1]{\textcolor{teal} {F: #1}}
+\newcommand{\julia}[1]{\textcolor{red} {J: #1}}
+\newcommand{\amanda}[1]{\textcolor{blue} {A: #1}}
+\newcommand{\rhett}[1]{\textcolor{green} {R: #1}}
+
+\def\iff{\leftrightarrow}
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usetikzlibrary{babel}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\usepackage{dsfont}
+
+\newtheorem{defi}[equation]{Definice}
+\newtheorem{thm}[equation]{Věta}
+
+\def\problem{\textsc}
+\def\netlearn{\problem{Network Learning}}
+\def\bnetlearn{\problem{Bayesian Network Learning}}
+\def\mdnetlearn{\problem{Majority Dynamics Network Learning}}
+\def\network{\mathcal{N}}
+\def\absolute#1{\left\lvert #1 \right\rvert }
+\def\deq{\mathbin{:=}}
+\DeclareMathOperator{\Berd}{Ber}
+\def\berd{\fce{\Berd}}
+\def\fce#1#2{#1\!\left(#2\right)}
+\def\fceb#1#2{#1\!\left[ #2 \right]}
+\def\suchthat{\;\vert\;}
+\def\pr#1{\fceb{\Pr}{#1}}
+\def\prt#1{\fceb{\Pr}{\text{#1}}}
+\def\lr#1#2#3{\fce{\mathcal{L}}{#1, #2, #3}}
+\def\clr#1#2#3{\fce{\mathcal{L}}{#1, #2, #3}}
+\def\olr{\fce{\mathcal{L}^*}}
+\def\oclr{\fce{\mathcal{L}^*}}
+\def\cell#1{\fce{\mathbb{C}}{#1}}
+\def\gadget#1{\fce{\mathbb{G}}{#1}}
+\def\vars{\chi}

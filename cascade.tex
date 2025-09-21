@@ -1,0 +1,36 @@
+\begin{figure}
+\begin{tikzpicture}[
+	stff/.style={circle, draw=black, thick},
+	stffc/.style={rectangle, draw=black, thick, minimum size=30},
+ scale=1,transform shape
+	]
+	  \node[stff]	(1)                 {1};
+		\node[stff]	(2)    [right=of 1] {2};
+		\node[stff]	(3)    [right=of 2] {3};
+		\node[stff]	(4)    [right=of 3] {4};
+		\node[stff]	(5)    [right=of 4] {5};
+		\node	(dots)    [right=of 5] {\ldots};
+
+		\onslide<2->{
+			\node(s1)		[above=of 1] {$ 0 $};
+			\node(s2)		[above=of 2] {$ 0 $};
+		}
+		\onslide<4->{
+			\node(s3)[above=of 3] {$ 1 $};
+			\node(s4)[above=of 4] {$ 1 $};
+			\node(s5)[above=of 5] {$ 1 $};
+		}
+
+		\onslide<3->{
+			\node(a1)		[above=of s1] {$ 0 $};
+			\node(a2)		[above=of s2] {$ 0 $};
+		}
+		\onslide<5->{
+			\node(a3)[above=of s3] {$ 0 $};
+		}
+		\onslide<6->{
+			\node(a4)[above=of s4] {$ 0 $};
+			\node(a5)[above=of s5] {$ 0 $};
+		}
+	\end{tikzpicture}
+\end{figure}

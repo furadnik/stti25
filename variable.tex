@@ -1,0 +1,18 @@
+    \begin{figure}
+        \centering
+\begin{tikzpicture}[
+	stff/.style={circle, draw=black, very thick, minimum size=30},
+	]
+		%Nodes
+		\node[stff]        (x)                  {$ x $};
+		\node[stff]        (nx)   [below=of x]   {$ \lnot x $};
+		\node[stff]        (d)   [left=of x,yshift=-30]   {$ d_x $};
+
+		%Lines
+		\draw[->, very thick] (d)  to  (x);
+		\draw[->, very thick] (d)  to (nx);
+		\draw[<->, very thick] (x)  to (nx);
+	\end{tikzpicture}
+        \caption{\emph{Buňka} proměnné $x$.
+        }
+    \end{figure}

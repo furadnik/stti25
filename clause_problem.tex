@@ -1,0 +1,19 @@
+\begin{figure}
+\begin{tikzpicture}[
+	stff/.style={circle, draw=black, thick, minimum size=30},
+	stffc/.style={rectangle, draw=black, thick, minimum size=30},
+ scale=1.3,transform shape
+	]
+		\node	(x)      {};
+		\node	(y)    [below=of x]  {};
+		\node	(z)    [below=of y]  {};
+
+		%Nodes
+		\node[stffc]	(C_1)    [right=of y,yshift=-5,xshift=100]  {$ C $};
+		\node	(a)      [right=of C_1,xshift=100] {};
+		
+		\alert<3->{\draw[->, thick] (x)  to (C_1);
+		\alert<2->{\draw[->, thick] (y)  to (C_1);}
+		\draw[->, thick] (z)  to (C_1);}
+	\end{tikzpicture}
+\end{figure}
