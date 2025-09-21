@@ -75,16 +75,16 @@
     \begin{itemize}
         \item<1-> Bayesovská inference: \[
     \mu^B(s_v, N_v) = \begin{cases}
-        1 & \text{if $\pr{\theta = 1 \suchthat s_v, N_v} > \frac 12$}, \\
-        0 & \text{if $\pr{\theta = 0 \suchthat s_v, N_v} > \frac 12$}, \\
-        \berd{\frac 12} & \text{otherwise.}
+        1 & \text{$\pr{\theta = 1 \suchthat s_v, N_v} > \frac 12$}, \\
+        0 & \text{$\pr{\theta = 0 \suchthat s_v, N_v} > \frac 12$}, \\
+        \berd{\frac 12} & \text{jinak.}
     \end{cases}
         \]
         \item<2-> Majority Vote \[
     \mu^M(s_v, N_v) = \begin{cases}
-        1 & \text{if $s_v + \sum_{u \in N_v} a_u > \frac 12 (|N_v| + 1)$}, \\
-        0 & \text{if $s_v + \sum_{u \in N_v} a_u < \frac 12 (|N_v| + 1)$}, \\
-				s_v & \text{otherwise.}
+        1 & \text{$s_v + \sum_{u \in N_v} a_u > \frac 12 (|N_v| + 1)$}, \\
+        0 & \text{$s_v + \sum_{u \in N_v} a_u < \frac 12 (|N_v| + 1)$}, \\
+				s_v & \text{jinak.}
     \end{cases}
         \]
     \end{itemize}
@@ -100,8 +100,8 @@
 
 \begin{frame}{Rozhodovací problém}
 \begin{defi}[{\netlearn{}}]
-        Nechť \alert<2>{rozhodovací pravidlo $\mu$} je dané.
-        \netlearn{} je problém rozhodnout pro \alert<3>{$ \network $} a \alert<3>{$ \varepsilon \in (0,1)$}, jestli \[
+        Nechť rozhodovací pravidlo $\mu$ je dané.
+        \netlearn{} je problém rozhodnout pro $ \network $ a $ \varepsilon \in (0,1)$, jestli \[
             \max_{\sigma \in \Sigma_n} \lr \network \sigma \mu \geq 1-\varepsilon.
         \]
 \end{defi}
@@ -129,11 +129,9 @@
 \begin{frame}{Buňka pro proměnnou}
 \begin{columns}
  \column{0.6\textwidth}
- \begin{itemize}
-     \item<2-> $x=T \quad \leftrightarrow\quad \sigma(x) > \sigma(\lnot x)$
- \end{itemize}
-    \column{0.4\textwidth}
-    \input{variable}
+ \onslide<2->{ $x=T \quad \leftrightarrow\quad \sigma(x) > \sigma(\lnot x)$}
+\column{0.4\textwidth}
+\input{variable}
 \end{columns}
 \end{frame}
 

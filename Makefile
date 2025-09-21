@@ -23,10 +23,10 @@ beamer.tex:
 			-e "s/mLightGreen.*/mLightGreen\}\{RGB\}{$$(hue .9 --format '{r}, {g}, {b}')}/" \
 		beamer.tex; fi
 
-main_43.tex:
+main_43.tex: main.tex
 	cat main.tex | sed 's/aspectratio=169/aspectratio=43/' > main_43.tex
 
-handout_43.tex:
+handout_43.tex: handout.tex
 	cat handout.tex | sed 's/aspectratio=169/aspectratio=43/' > handout_43.tex
 
 purge:
