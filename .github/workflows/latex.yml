@@ -13,8 +13,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y texlive texlive-lang-czechslovak texlive-science texlive-latex-extra git make texlive-fonts-extra texlive-bibtex-extra
-          make handout.pdf
-          make main.pdf
+          make all
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -22,5 +21,4 @@ jobs:
           prerelease: false
           title: "Automatic Release"
           files: |
-            main.pdf
-            handout.pdf
+            *.pdf

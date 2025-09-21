@@ -1,6 +1,6 @@
-MAINS = $(shell find . -maxdepth 3 -type f -name main.tex)
+MAINS = $(shell find . -maxdepth 3 -type f -name main.tex) handout.tex main_43.tex handout_43.tex
 
-PDFS = $(MAINS:.tex=.pdf) handout.pdf
+PDFS = $(MAINS:.tex=.pdf)
 
 all: doc
 
@@ -29,6 +29,11 @@ beamer.tex:
 			-e "s/mLightGreen.*/mLightGreen\}\{RGB\}{$$(hue .9 --format '{r}, {g}, {b}')}/" \
 		beamer.tex; fi
 
+main_43.tex:
+	cat main.tex | sed 's/aspectratio=169/aspectratio=43/' > main_43.tex
+
+handout_43.tex:
+	cat handout.tex | sed 's/aspectratio=169/aspectratio=43/' > handout_43.tex
 
 purge:
 	rm $(MAINS:.tex=.fls) || echo "fine"
