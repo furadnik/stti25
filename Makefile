@@ -6,17 +6,11 @@ all: doc
 
 doc: $(PDFS)
 
-$(PDFS): %.pdf: $(dir %)/*.tex
-	lualatex main.tex || echo "error"
-	bibtex main
-	lualatex main.tex || echo "error"
-	lualatex main.tex || echo "error"
-
-handout.pdf: handout.tex
-	lualatex handout.tex
-	bibtex handout
-	lualatex handout.tex
-	lualatex handout.tex
+$(PDFS): %.pdf: %.tex $(dir %)/*.tex
+	lualatex $< || echo "error"
+	bibtex $(basename $<) || echo "no bib"
+	lualatex $< || echo "error"
+	lualatex $< || echo "error"
 
 handout.tex: main.tex
 	cat main.tex | sed 's/\\documentclass\[/\\documentclass[handout,/' > handout.tex
